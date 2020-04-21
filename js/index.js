@@ -27,7 +27,54 @@ $(".accordion").simpleAccordion();
 $(".accordion__control").next().slideUp();
 
 
+var SOUNDS = {};
+window.AudioContext = window.AudioContext || window.webkitAudioContext;
+var audioContext = new AudioContext();
+function loadSound(name,success,err) {
+    var request = new XMLHttpRequest();
+    request.open('GET', 'public/audio/'+name+'.wav');
+    request.responseType = 'arraybuffer';
+    request.onload = function() {
+        audioContext.decodeAudioData(request.response, function(buffer) {
+            SOUNDS[name] = buffer;
+            (success || (function(){}))()
+        }, err || function(msg) {console.error(msg);});
+     }
+     request.send();
+ }
+ function playSound(name,param,pitch) {
+     param = param || {};
+     pitch = pitch || 0;
+     if (!(name in SOUNDS)) return;
+     var s = SOUNDS[name];
+     var source = audioContext.createBufferSource();
+     source.buffer = s;
+     if (param.loop) {
+         source.loop = true
+     }
+     source.connect(audioContext.destination);
+     source.detune.value = pitch;
+     source.start(0);
+ }
+ loadSound("hover");
+ loadSound("select");
+ loadSound("deselect");
 
+$(".accordion__control").mouseenter(
+	function() {
+		playSound('hover',{},$(this).index()*100);
+	}
+);
+
+$(".accordion__control").click(
+	function() {
+		if ($(this).hasClass("accordion__control--active")) {
+			playSound('deselect');
+		} else {
+			playSound('select');
+		}
+	}
+);
 /**
  * boxlayout.js v1.0.0
  * http://www.codrops.com
@@ -77,6 +124,10 @@ var Boxlayout = (function() {
 		$sections.each( function() {
 
 			var $section = $( this );
+			$section.on( 'mouseenter', function() {
+					playSound('hover',{},$(this).index()*100);
+				}
+			);
 
 			// expand the clicked section and scale down the others
 			$section.on( 'click', function() {
@@ -84,6 +135,7 @@ var Boxlayout = (function() {
 				if( !$section.data( 'open' ) ) {
 					$section.data( 'open', true ).addClass( 'bl-expand bl-expand-top' );
 					$el.addClass( 'bl-expand-item' );
+					playSound('select');
 				}
 
 			} ).find( 'span.fa-times' ).on( 'click', function() {
@@ -99,6 +151,7 @@ var Boxlayout = (function() {
 				}
 
 				$el.removeClass( 'bl-expand-item' );
+				playSound('deselect');
 
 				return false;
 

@@ -5,12 +5,14 @@
     <title>Shrenil.com</title>
 
         <link rel="stylesheet" href="public/css/style.css">
-
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
         <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700|Righteous|Varela+Round" rel="stylesheet">
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/emojione/2.2.6/assets/css/emojione.min.css"/>
-        <script src="http://cdn.jsdelivr.net/emojione/1.5.2/lib/js/emojione.min.js"></script>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/emojione/2.2.7/assets/css/emojione.min.css"/>
 
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/lib/js/emojione.min.js"></script>
+        
+        <!-- Lil nosy, aren't you? -->
 
   </head>
 
@@ -20,16 +22,13 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Fullscreen Layout with Page Transitions</title>
-		<meta name="description" content="Fullscreen Layout with Page Transitions" />
-		<meta name="keywords" content="fullscreen layout, boxes, responsive, page transitions, css transitions, jquery, portfolio, template" />
-		<meta name="author" content="Codrops" />
 		<link rel="shortcut icon" href="http://tympanus.net/Development/favicon.ico">
 	</head>
 	<body>
+		<audio id="audioHover">
+		  <source src="public/audio/blip.wav" type="audio/wav">
+		</audio>
+
 		<div class="container">
 			<div id="bl-main" class="bl-main">
 				<section>
@@ -40,8 +39,8 @@
 						</div>
 					</div>
 					<div class="bl-content right-text convert-emoji">
-						<h2>ABOUT ME</h2>
-						<div class="hr"></div>
+						<div class="hbox main-center center-text"> <h2>ABOUT ME</h2> </div>
+						</br><div class="hr"></div>
 						<div class="vbox">
 							<div class="hbox main-center center-text">
 								<div class="image-wrap"><img src="public/images/shrenp.jpg"/></div>
@@ -51,10 +50,11 @@
 								<h1>Shrenil Patel</h1>
 								<h3>- An Inside Look -</h3>
 							</div>
-							<p class="convert-emoji"> Hey! I'm <b>Shrenil Patel</b>. Third year software engineering student at  University of Waterloo and I like to be cool all the time :sunglasses:. Be it making something cool, eating something cool, finding something, or even learning something cool. If you're working on some cool tech you <b>bet</b> I want in!
+							<p class="convert-emoji"> Hey! I'm <b>Shrenil (Shren) Patel</b>. Software Engineer and author/co-Creator of the popular Webtoon Original Webcomic, AXED! Be it making something cool, eating something cool, finding something, or even learning something cool. If you're working on some cool tech you <b>bet</b> I want in!
 							</p>
 							<div class="accordion">
-								<div class="accordion__control acc_pink">Hobbies &amp; Interests<span class="accordion__indicator"></span></div>
+								<div class="accordion__control acc_pink">
+									<div class="accordian__ctext">Hobbies &amp; Interests</div><span class="accordion__indicator"><i class="fas fa-chevron-right"></i></span></div>
 								<div class="accordion__panel">
 									<p>
 										<ul>
@@ -75,14 +75,16 @@
 										</ul>
 									</p>
 								</div>
-								<div class="accordion__control acc_pink">Contact<span class="accordion__indicator"></span></div>
+								<div class="accordion__control acc_pink"><div class="accordian__ctext">Contact</div><span class="accordion__indicator"><i class="fas fa-chevron-right"></i></span></div>
 								<div class="accordion__panel">
 									<p>
-										<b>Github</b> - <a href="https://github.com/blopit">github.com/blopit</a>
+										<b>Github</b> <i class="fab fa-github"></i> - <a href="https://github.com/blopit">github.com/blopit</a>
 										</br>
-										<b>Email</b> - <a href="mailto:patel.shrenil@gmail.com?Subject=Hello!%20you are so coool" target="_top">patel.shrenil@gmail.com</a>
+										<b>Email</b> <i class="fas fa-envelope"></i> - <a href="mailto:patel.shrenil@gmail.com?Subject=Hello!%20you are so cool! Let me hire you!" target="_top">patel.shrenil@gmail.com</a>
 										</br>
-									  	<b>Phone</b> - <a href="tel:226-868-6885">+1 226-868-6885</a>
+									  	<b>Phone</b> <i class="fas fa-phone"></i> - <a href="tel:226-868-6885">+1 226-868-6885</a>
+									  	</br>
+									  	<b> Twitter</b> <i class="fab fa-twitter"></i> - <a href="https://twitter.com/shren_p">@shren_p</a>
 									</p>
 								</div>
 							</div>
@@ -101,8 +103,8 @@
 						</div>
 					</div>
 					<div class="bl-content right-text ">
-						<h2>SKILLS</h2>
-						<hr>
+						<div class="hbox main-center center-text"> <h2>SKILLS</h2> </div>
+						</br><div class="hr"></div>
 						<div class="center-text slab-text">
 							<h1>How I pay my bills</h1>
 						</div>
@@ -110,21 +112,22 @@
 						<!--<p class="convert-emoji"> "With great power comes great responsibility" - Uncle Ben
 							</p>-->
 							<div class="accordion">
-								<div class="accordion__control acc_purple">Proficient Languages<span class="accordion__indicator"></span></div>
+								<div class="accordion__control acc_purple"><div class="accordian__ctext">Profficient Languages</div><span class="accordion__indicator"><i class="fas fa-chevron-right"></i></span></div>
 								<div class="accordion__panel">
 									<p>
 										<ul>
-										  <li>Python</li>
+										  <li>Python 2/3</li>
+										  <li>C/C++</li>
+
 										  <li>Javascript</li>
 										  <li>Java</li>
-										  <li>C++</li>
-										  <li>C</li>
 										  <li>HTML/CSS</li>
+										  <li>Swift</li>
 										</ul>
 									</p>
 								</div>
 
-								<div class="accordion__control acc_purple">Familiar Languages<span class="accordion__indicator"></span></div>
+								<div class="accordion__control acc_purple"><div class="accordian__ctext">Familiar Languages</div><span class="accordion__indicator"><i class="fas fa-chevron-right"></i></span></div>
 								<div class="accordion__panel">
 									<p>
 										<ul>
@@ -142,12 +145,13 @@
 									</p>
 								</div>
 
-								<div class="accordion__control acc_purple">Frameworks + Libraries + SDKs<span class="accordion__indicator"></span></div>
+								<div class="accordion__control acc_purple"><div class="accordian__ctext">Frameworks + Libraries + SDKs</div><span class="accordion__indicator"><i class="fas fa-chevron-right"></i></span></div>
 								<div class="accordion__panel">
 									<p>
 										<ul>
 										  <li>Node.js</li>
-										  <li>React + react-native</li>
+										  <li>React</li>
+										  <li>React-Native</li>
 										  <li>AngularJS</li>
 										  <li>Jquery</li>
 										  <li>Express</li>
@@ -172,22 +176,23 @@
 									</p>
 								</div>
 
-								<div class="accordion__control acc_purple">Database<span class="accordion__indicator"></span></div>
+								<div class="accordion__control acc_purple"><div class="accordian__ctext">Database</div><span class="accordion__indicator"><i class="fas fa-chevron-right"></i></span></div>
 								<div class="accordion__panel">
 									<p>
 										<ul>
 										  <li>MySQL</li>
+										  <li>PostgreSQL</li>
 										  <li>MongoDB</li>
 										  <li>SQLite</li>
 										</ul>
 									</p>
 								</div>
 
-								<div class="accordion__control acc_purple">Tools<span class="accordion__indicator"></span></div>
+								<div class="accordion__control acc_purple"><div class="accordian__ctext">Tools</div><span class="accordion__indicator"><i class="fas fa-chevron-right"></i></span></div>
 								<div class="accordion__panel">
 									<p>
 										<ul>
-										  <li>REGEX</li>
+										  <li>RegEx</li>
 										</ul>
 										<ul>
 										  <li>Windows</li>
@@ -236,7 +241,7 @@
 									</p>
 								</div>
 
-								<div class="accordion__control acc_purple">Other<span class="accordion__indicator"></span></div>
+								<div class="accordion__control acc_purple"><div class="accordian__ctext">Other</div><span class="accordion__indicator"><i class="fas fa-chevron-right"></i></span></div>
 								<div class="accordion__panel">
 									<p>
 										<ul>
@@ -248,8 +253,6 @@
 										  	Excellent written and verbal English skills. Told by every English teacher to become a writer!
 										  </li>
 										  <li>I can name the capital of most countries <span class="comment">&nbsp;&nbsp;&nbsp;//Try me</span></li>
-										  <li>I can come up with a pickup line for any name</li>
-										  <li>I can make most babies cry by simply looking at them</li>
 									</p>
 								</div>
 
@@ -269,15 +272,15 @@
 						</div>
 					</div>
 					<div class="bl-content right-text">
-						<h2>EXPERIENCE</h2>
-						<hr>
+						<div class="hbox main-center center-text"> <h2>EXPERIENCE</h2> </div>
+						</br><div class="hr"></div>
 						<div class="center-text slab-text">
 								<h1>Started From the Bottom Now We Here</h1>
 							</div>
 							<p class="convert-emoji">
 							</p>
 							<div class="accordion">
-								<div class="accordion__control acc_blue">Desire2Learn<span class="accordion__indicator"></span></div>
+								<div class="accordion__control acc_blue"><div class="accordian__ctext">Desire2Learn</div><span class="accordion__indicator"><i class="fas fa-chevron-right"></i></span></div>
 								<div class="accordion__panel">
 									<div class="hbox main-space">
 										<h3>Software Developer/Designer</h3>
@@ -291,7 +294,7 @@
 									</p>
 								</div>
 
-								<div class="accordion__control acc_blue">SpringBoard Data Management<span class="accordion__indicator"></span></div>
+								<div class="accordion__control acc_blue"><div class="accordian__ctext">SpringBoard Data Management</div><span class="accordion__indicator"><i class="fas fa-chevron-right"></i></span></div>
 								<div class="accordion__panel">
 									<div class="hbox main-space">
 										<h3>Mobile Developer</h3>
@@ -307,7 +310,7 @@
 									</p>
 								</div>
 
-								<div class="accordion__control acc_blue">Minted LLC<span class="accordion__indicator"></span></div>
+								<div class="accordion__control acc_blue"><div class="accordian__ctext">Minted LLC</div><span class="accordion__indicator"><i class="fas fa-chevron-right"></i></span></div>
 								<div class="accordion__panel">
 									<div class="hbox main-space">
 										<h3>Software Developer</h3>
@@ -323,7 +326,7 @@
 									</p>
 								</div>
 
-								<!--<div class="accordion__control acc_blue">Contact<span class="accordion__indicator"></span></div>
+								<!--<div class="accordion__control acc_blue"><div class="accordian__ctext">Contact</div><span class="accordion__indicator"><i class="fas fa-chevron-right"></i></span></div>
 								<div class="accordion__panel">
 									<p>
 									</p>
@@ -337,14 +340,14 @@
 				<section>
 					<div class="bl-box">
 						<div class="hvr-underline-from-center">
-							<h2 class="bl-icon fa fa-code-fork fa-4x">
+							<h2 class="bl-icon fa fa-code-branch fa-4x">
 								<div class="icon-text">Projects</div>
 							</h2>
 						</div>
 					</div>
 					<div class="bl-content">
-						<h2>PROJECTS</h2>
-						<hr>
+						<div class="hbox main-center center-text"> <h2>PROJECTS</h2> </div>
+						</br><div class="hr"></div>
 						<p>Coming Soon~...</p> </br>
 						<b>Github</b> - <a href="https://github.com/blopit">github.com/blopit</a></br>
 						<b>Devpost</b> - <a href="https://github.com/blopit">devpost.com/blopit</a></br>
@@ -359,18 +362,12 @@
 			</div>
 		</div><!-- /container -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
+		<script src="js/index.js"></script>
 		<script>
 			$(function() {
 				Boxlayout.init();
 			});
 		</script>
-</html>
-
-        <script src="js/index.js"></script>
-
-
-
-
+	</html>
   </body>
 </html>
