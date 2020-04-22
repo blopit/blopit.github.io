@@ -60,9 +60,11 @@ function loadSound(name,success,err) {
  loadSound("select");
  loadSound("deselect");
 
-$(".accordion__control").mouseenter(
+$(".accordion__control, .accordion__button").mouseenter(
 	function() {
-		playSound('hover',{},$(this).index()*100);
+		if (!$(this).hasClass("accordion__control--active")) {
+			playSound('hover',{},-200+$(this).index()*50);
+		}
 	}
 );
 
@@ -75,6 +77,7 @@ $(".accordion__control").click(
 		}
 	}
 );
+
 /**
  * boxlayout.js v1.0.0
  * http://www.codrops.com
@@ -125,7 +128,9 @@ var Boxlayout = (function() {
 
 			var $section = $( this );
 			$section.on( 'mouseenter', function() {
-					playSound('hover',{},$(this).index()*100);
+					if (!$(this).hasClass("bl-expand")) {
+						playSound('hover',{},-200+$(this).index()*50);
+					}
 				}
 			);
 
