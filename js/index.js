@@ -28,6 +28,7 @@ $(".accordion__control").next().slideUp();
 
 
 var SOUNDS = {};
+var audio = true;
 window.AudioContext = window.AudioContext || window.webkitAudioContext;
 var audioContext = new AudioContext();
 function loadSound(name,success,err) {
@@ -43,6 +44,7 @@ function loadSound(name,success,err) {
      request.send();
  }
  function playSound(name,param,pitch) {
+	 if (!audio) return;
      param = param || {};
      pitch = pitch || 0;
      if (!(name in SOUNDS)) return;
@@ -59,6 +61,22 @@ function loadSound(name,success,err) {
  loadSound("hover");
  loadSound("select");
  loadSound("deselect");
+
+$("#audioOverlay").click(
+	function() {
+		audio = !audio;
+		if (audio) {
+			playSound('select');
+			if ($(this).hasClass("fa-volume-off")) {
+				$(this).removeClass("fa-volume-off").addClass("fa-volume-up");
+			}
+		} else {
+			if ($(this).hasClass("fa-volume-up")) {
+				$(this).removeClass("fa-volume-up").addClass("fa-volume-off");
+			}
+		}
+	}
+);
 
 $(".accordion__control, .accordion__button").mouseenter(
 	function() {

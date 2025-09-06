@@ -817,7 +817,6 @@ p, .accordion__panel {
 }
 
 
-
 /* width */
 ::-webkit-scrollbar {
   width: 5px;
@@ -835,3 +834,32 @@ p, .accordion__panel {
   border-radius: 10px;
 }
 
+#audioOverlay {
+  position: fixed; /* Sit on top of the page content */
+  left: 50%;
+  width: 150px;
+  /* bring your own prefixes */
+  transform: translate(-50%, -75%);
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+  text-align: center;
+  vertical-align: middle;
+  padding: 20px;
+
+  -moz-border-radius: 0px 0px 16px 16px;
+	-webkit-border-radius: 0px 0px 16px 16px;
+  -webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+  background: -webkit-linear-gradient(#a6eff0,#7fced3);
+  background: -moz-linear-gradient(#a6eff0,#7fced3);
+  background: -o-linear-gradient(#a6eff0,#7fced3);
+  background: linear-gradient(#a6eff0,#7fced3);
+  -webkit-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.1);
+	-moz-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.1);
+	box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.1);
+}
+
+#audioOverlay:hover {
+  transform: translate(-50%, 0%);
+}
